@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <!-- =========================
+       DOCUMENT METADATA
+  ========================== -->
+
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Anvil</title>
+
+  <!-- =========================
+       STYLESHEETS
+  ========================== -->
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script src="theme.js"></script>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="container">
+
+      <div class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+          <img
+            src="images/anvil_light.png"
+            class="theme-img"
+            data-light="images/anvil_light.png"
+            data-dark="images/anvil_dark.png"
+            alt="Anvil logo"
+          />
+
+        </div>
+
+        <!-- Navigation -->
+
+        <nav>
+
+          <a href="index.html">Home</a>
+          <a href="install.html">Install</a>
+          <a href="documentation.html">Documentation</a>
+
+          <a
+            href="https://github.com/saulsalgado9685-creator/anvil"
+          >
+            GitHub
+          </a>
+
+          <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-btn" id="themeButton">Theme</button>
+
+            <div class="theme-menu" id="themeMenu">
+              <button data-theme="light">Light</button>
+              <button data-theme="dark">Dark</button>
+            </div>
+          </div>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main class="container">
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section id="hero">
+
+      <h1>
+        A modern C++ library for numerical simulation
+        of differential equations
+      </h1>
+
+      <p>
+        Anvil is an open-source C++ library for solving
+        ordinary differential equations (ODEs) and
+        building high-performance numerical simulations
+        for scientific and engineering systems.
+      </p>
+
+      <img
+        src="images/lorenz_light.png"
+        class="hero-image theme-img"
+        data-light="images/lorenz_light.png"
+        data-dark="images/lorenz_dark.png"
+        alt="Lorenz attractor"
+      />
+
+    </section>
+
+    <!-- =========================
+         OVERVIEW SECTION
+    ========================== -->
+
+    <section id="overview">
+
+      <h2>Overview</h2>
+
+      <p>
+        Anvil is built around a layered architecture
+        that separates mathematical models,
+        numerical solvers, and computational backends.
+      </p>
+
+      <p>
+        This design allows users to define differential
+        systems independently from the numerical method
+        used to solve them, enabling flexibility
+        and extensibility.
+      </p>
+
+      <p>
+        The library uses modern C++ features such as
+        templates, compile-time polymorphism,
+        and zero-cost abstractions to ensure performance
+        comparable to hand-written numerical code.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         SCOPE SECTION
+    ========================== -->
+
+    <section id="scope">
+
+      <h2>Scope</h2>
+
+      <p>
+        Anvil focuses on numerical simulation
+        of ordinary differential equations (ODEs)
+        and dynamical systems.
+      </p>
+
+      <p>It provides tools for:</p>
+
+      <ul>
+        <li>Time integration of dynamical systems</li>
+        <li>Explicit and adaptive numerical solvers</li>
+        <li>State vector evolution</li>
+        <li>Basic linear algebra operations</li>
+      </ul>
+
+      <p>
+        It does not aim to replace general-purpose
+        symbolic mathematics libraries.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         FEATURES SECTION
+    ========================== -->
+
+    <section id="features">
+
+      <h2>Key features</h2>
+
+      <ul>
+
+        <li>Header-only design (no build step required)</li>
+        <li>Modern C++17 implementation</li>
+        <li>Explicit and adaptive solvers</li>
+        <li>Extensible solver architecture</li>
+        <li>High-performance numerical execution</li>
+
+      </ul>
+
+    </section>
+
+    <!-- =========================
+         APPLICATIONS SECTION
+    ========================== -->
+
+    <section id="applications">
+
+      <h2>Applications</h2>
+
+      <p>
+        Anvil is suitable for scientific computing
+        and engineering domains where continuous-time
+        simulation is required.
+      </p>
+
+      <ul>
+
+        <li>Physics simulations</li>
+        <li>Control systems</li>
+        <li>Mechanical modeling</li>
+        <li>Electrical circuit simulation</li>
+        <li>Applied mathematics research</li>
+
+      </ul>
+
+      <p>
+        The library is designed for reproducibility,
+        stability, and numerical accuracy
+        in time-dependent systems.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-bottom">
+        © 2026 Anvil Development Team
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>

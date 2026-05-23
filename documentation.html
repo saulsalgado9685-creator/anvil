@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <!-- =========================
+       DOCUMENT METADATA
+  ========================== -->
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Anvil — Documentation</title>
+
+  <!-- =========================
+       STYLESHEETS
+  ========================== -->
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- =========================
+       HIGHLIGHT.JS THEMES
+  ========================== -->
+
+  <link
+    id="hljs-light"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+  >
+
+  <link
+    id="hljs-dark"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    disabled
+  >
+
+  <!-- =========================
+       HIGHLIGHT.JS
+  ========================== -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      hljs.highlightAll();
+    });
+  </script>
+
+  <!-- =========================
+       MATHJAX CONFIGURATION
+  ========================== -->
+
+  <script src="mathjax-config.js"></script>
+
+  <!-- =========================
+       MATHJAX ENGINE
+  ========================== -->
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  ></script>
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script src="theme.js"></script>
+
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+
+  <header>
+
+    <div class="container">
+
+      <div class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+
+          <img
+            src="images/anvil_light.png"
+            class="theme-img"
+            data-light="images/anvil_light.png"
+            data-dark="images/anvil_dark.png"
+            alt="Anvil logo"
+          />
+
+        </div>
+
+        <!-- Navigation -->
+
+        <nav>
+
+          <a href="index.html">Home</a>
+          <a href="install.html">Install</a>
+          <a href="documentation.html">Documentation</a>
+
+          <a
+            href="https://github.com/saulsalgado9685-creator/anvil"
+          >
+            GitHub
+          </a>
+
+          <div class="theme-dropdown" id="themeDropdown">
+            <button class="theme-btn" id="themeButton">Theme</button>
+
+            <div class="theme-menu" id="themeMenu">
+              <button data-theme="light">Light</button>
+              <button data-theme="dark">Dark</button>
+            </div>
+          </div>
+
+        </nav>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+
+  <main class="container install-page">
+
+    <!-- =========================
+         PAGE HEADER
+    ========================== -->
+
+    <section id="intro">
+
+      <h1>Documentation</h1>
+
+      <p>
+        Anvil is a high-performance C++ library
+        for solving ordinary differential equations (ODEs).
+        It is designed for scientific computing,
+        numerical simulation, and engineering systems.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         OVERVIEW
+    ========================== -->
+
+    <section id="overview">
+
+      <h2>Overview</h2>
+
+      <p>
+        The library solves systems of ordinary
+        differential equations by numerically integrating
+        their evolution over time.
+      </p>
+
+      <p>General form:</p>
+
+      <p>
+        $$
+        \frac{dy}{dt} = f(t, y)
+        $$
+      </p>
+
+      <p>
+        where \( y \in \mathbb{R}^n \)
+        and \( f \) defines the system dynamics.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         MATHEMATICAL BACKGROUND
+    ========================== -->
+
+    <section id="mathematical-background">
+
+      <h2>Mathematical background</h2>
+
+      <p>
+        Numerical integration approximates
+        continuous systems using discrete steps:
+      </p>
+
+      <p>
+        $$
+        y_{n+1} = y_n + h \, \Phi(t_n, y_n, h)
+        $$
+      </p>
+
+      <p>where:</p>
+
+      <ul>
+
+        <li>\( h \): step size</li>
+        <li>\( \Phi \): numerical integration function</li>
+
+      </ul>
+
+      <p>
+        Accuracy depends on local truncation error
+        and global error accumulation.
+      </p>
+
+    </section>
+
+    <!-- =========================
+         CORE API
+    ========================== -->
+
+    <section id="core-api">
+
+      <h2>Core API</h2>
+
+      <!-- anvil::solve -->
+
+      <div class="install-block">
+
+        <h3>anvil::solve</h3>
+
+        <p>High-level solver entry point.</p>
+
+        <pre class="code-block"><code class="language-cpp">auto result = anvil::solve(
+    system,
+    y0,
+    t0,
+    t1,
+    anvil::RK4{}
+);</code></pre>
+
+      </div>
+
+      <!-- anvil::Vector -->
+
+      <div class="install-block">
+
+        <h3>anvil::Vector</h3>
+
+        <p>Represents system state.</p>
+
+        <pre class="code-block"><code class="language-cpp">anvil::Vector y0 = {
+    1.0,
+    0.0,
+    0.5
+};</code></pre>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         SYSTEM TYPES
+    ========================== -->
+
+    <section id="system-types">
+
+      <h2>System types</h2>
+
+      <!-- Non-stiff systems -->
+
+      <div class="install-block">
+
+        <h3>Non-stiff systems</h3>
+
+        <p>
+          Well-behaved systems suitable
+          for explicit methods.
+        </p>
+
+      </div>
+
+      <!-- Stiff systems -->
+
+      <div class="install-block">
+
+        <h3>Stiff systems</h3>
+
+        <p>
+          Require adaptive or implicit solvers
+          for stability.
+        </p>
+
+      </div>
+
+      <!-- Autonomous systems -->
+
+      <div class="install-block">
+
+        <h3>Autonomous systems</h3>
+
+        <p>
+          Systems where dynamics do not depend
+          explicitly on time.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         SOLVERS
+    ========================== -->
+
+    <section id="solvers">
+
+      <h2>Solvers</h2>
+
+      <!-- RK4 -->
+
+      <div class="install-block">
+
+        <h3>RK4 (Runge-Kutta 4)</h3>
+
+        <p>
+          Fixed-step explicit solver
+          for smooth systems.
+        </p>
+
+        <pre class="code-block"><code class="language-cpp">anvil::RK4 solver;</code></pre>
+
+      </div>
+
+      <!-- RK45 -->
+
+      <div class="install-block">
+
+        <h3>RK45 (Adaptive)</h3>
+
+        <p>
+          Adaptive solver with embedded
+          error estimation.
+        </p>
+
+        <pre class="code-block"><code class="language-cpp">anvil::RK45 solver;</code></pre>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         STEP CONTROL
+    ========================== -->
+
+    <section id="step-control">
+
+      <h2>Step control</h2>
+
+      <p>
+        Step size determines the trade-off
+        between accuracy and performance:
+      </p>
+
+      <ul>
+
+        <li>Small step → higher accuracy</li>
+        <li>Large step → faster execution</li>
+
+      </ul>
+
+    </section>
+
+    <!-- =========================
+         ERROR CONTROL
+    ========================== -->
+
+    <section id="error-control">
+
+      <h2>Error control</h2>
+
+      <p>
+        Adaptive solvers use tolerance parameters:
+      </p>
+
+      <pre class="code-block"><code class="language-cpp">anvil::RK45 solver;
+
+solver.set_rtol(1e-6);
+solver.set_atol(1e-9);</code></pre>
+
+    </section>
+
+    <!-- =========================
+         EXAMPLE
+    ========================== -->
+
+    <section id="example">
+
+      <h2>Example</h2>
+
+      <p>Exponential decay system:</p>
+
+      <pre class="code-block"><code class="language-cpp">#include &lt;anvil/anvil.hpp&gt;
+
+int main() {
+
+    auto system = [](
+        double t,
+        const anvil::Vector& y
+    ) {
+        return anvil::Vector{
+            -y[0]
+        };
+    };
+
+    anvil::Vector y0 = {1.0};
+
+    auto result = anvil::solve(
+        system,
+        y0,
+        0.0,
+        5.0,
+        anvil::RK4{}
+    );
+
+    return 0;
+}</code></pre>
+
+    </section>
+
+    <!-- =========================
+         PERFORMANCE NOTES
+    ========================== -->
+
+    <section id="performance">
+
+      <h2>Performance notes</h2>
+
+      <ul>
+
+        <li>SIMD optimizations enabled in release builds</li>
+        <li>RK4 is faster for fixed-step simulations</li>
+        <li>RK45 is more accurate for dynamic systems</li>
+
+      </ul>
+
+    </section>
+
+    <!-- =========================
+         LIMITATIONS
+    ========================== -->
+
+    <section id="limitations">
+
+      <h2>Limitations</h2>
+
+      <ul>
+
+        <li>No PDE support</li>
+        <li>No symbolic solving</li>
+        <li>Real-valued systems only</li>
+
+      </ul>
+
+    </section>
+
+    <!-- =========================
+         NOTES
+    ========================== -->
+
+    <section id="notes">
+
+      <h2>Notes</h2>
+
+      <p>
+        Anvil is optimized for
+        performance-critical scientific workloads.
+      </p>
+
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-bottom">
+        © 2026 Anvil Development Team
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>
